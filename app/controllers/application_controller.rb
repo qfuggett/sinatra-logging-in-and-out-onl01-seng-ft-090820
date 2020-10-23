@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    binding.pry
+    
     @user = User.find_by(params)
     if @user && @user.password == params[:password]
       session[:user_id] = @user.id
@@ -22,7 +22,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-    #binding.pry
+    binding.pry
     @user = User.find_by_id(session[:user_id])
     if @user
       erb :account
