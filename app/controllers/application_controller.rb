@@ -37,3 +37,8 @@ class ApplicationController < Sinatra::Base
 
 end
 
+    
+    <% if Helpers.is_logged_in?(session) %>
+    <h1>Welcome <%= Helpers.current_user(session).username %></h1>
+    <h3>Your Balance: <%= Helpers.current_user(session).balance %>.0</h3>
+    <% end %>
